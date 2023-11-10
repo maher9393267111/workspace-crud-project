@@ -9,17 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "antd": "^5.11.1",
+    "axios": "^1.6.1",
+    "firebase": "^10.6.0",
+    "mongoose": "^8.0.0",
+    "nanoid": "^5.0.3",
+    "next": "14.0.2",
+    "next-connect": "^0.12.2",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.2"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
   }
 }

@@ -17,11 +17,17 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-green-800;
+}
+
+.ant-btn-primary:not(.ant-btn-dangerous) {
+  /* color: ${readableColor(token.colorPrimary)}; */
+  @apply bg-green-800 hover:bg-green-800
+
+
+
+  /* &:active {
+    color: ${readableColor(token.colorPrimaryActive)} !important;
+    background: ${token.colorPrimaryActive} !important;
+  } */;
 }
