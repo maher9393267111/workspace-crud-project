@@ -9,7 +9,7 @@ import { useProducts } from "../config/hooks/fetchWorkSpaces";
 import WorkForm from "../components/workForm";
 export default function Home() {
   const [selectedId, setSelectedId] = useState(undefined);
-  const [initialValues, setInitialValues] = useState({});
+  const [initialValues, setInitialValues] = useState<any>({});
   const [isOpen, setIsOpen] = useState(false);
   // const [works, setWorks] = useState([]);
   const [file, setFile] = useState("");
@@ -45,10 +45,10 @@ export default function Home() {
   //   if (data) setWorks(data?.data);
   // }
 
-  const onFinish = async (values) => {
+  const onFinish = async (values :any) => {
     try {
       if (selectedId) {
-        await axios.put(`/api/work?id=${initialValues?._id}`, values);
+        await axios.put(`/api/work?id=${initialValues?._id }`, values);
         message.success("WorkSpace Updated successfully");
         // checkInStock();
         fetchWorks();
@@ -63,12 +63,12 @@ export default function Home() {
 
       
     } catch (error) {
-      message.error(error.message);
+      message.error('something went wrong');
     } finally {
     }
   };
 
-  const onUpdateHandler = async (data) => {
+  const onUpdateHandler = async (data :any) => {
     setSelectedId(data._id);
     setInitialValues(data);
     console.log("datra--->", data);
@@ -80,9 +80,9 @@ export default function Home() {
     <div className=" bg-green-800 mt-24 mb-24  w-[80%] md:w-1/2 mx-auto ">
       <div className="mb-6">
         <button
-          onOk={handleOk}
+       
           className="    bg-white left-12 py-4 font-semibold text-xl rounded-xl px-6 mb-4  flex items-center text-center  block w-[300px]  text-black"
-          type="primary"
+          // type="primary"
           onClick={showModal}
         >
           <p>Create a new workSpace</p>
@@ -127,7 +127,7 @@ export default function Home() {
           {/* ---workspaces list---- */}
           <div className="mt-2">
             {works?.length > 0 &&
-              works?.map((work, indes) => {
+              works?.map((work : any) => {
                 return (
                   <div className="my-2">
                     <div

@@ -23,7 +23,7 @@ async function connect() {
 	}
 
 	// create a new connection
-	const db = await mongoose.connect("mongodb+srv://maher:maher9326@cluster0.nf63j.mongodb.net/nextzone?retryWrites=true&w=majority")
+	const db = await mongoose.connect(______HERE______)
 	console.log('database - new connection created.')
 	connection.isConnected = db.connections[0].readyState
 }
