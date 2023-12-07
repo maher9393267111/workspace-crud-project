@@ -161,6 +161,7 @@ export default function TablePage({ totalPages, totalDocs, products }) {
 
 // export default PaginationExamplePagination
 
+
 TablePage.getInitialProps = async (ctx) => {
   const page = ctx.query.page ? ctx.query.page : "1";
   const size = 3;
