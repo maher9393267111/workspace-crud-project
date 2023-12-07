@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import Product from '../models/product';
 
 // an emoty object to store whether we are connected to database or not
 const connection = {}
@@ -23,10 +24,27 @@ async function connect() {
 	}
 
 	// create a new connection
-	const db = await mongoose.connect(______HERE______)
+	const db = await mongoose.connect("mongodb+srv://maher:maher9326@cluster0.nf63j.mongodb.net/theme?retryWrites=true&w=majority")
 	console.log('database - new connection created.')
-	connection.isConnected = db.connections[0].readyState
+
+	db.on('error', console.error.bind(console, 'connection error:'));
+	var a1= db.once('open',function(){
+	  Products.find({},{},function (err, users) {
+		mongoose.connection.close();
+		console.log("Username supplied"+username);
+		//doSomethingHere 
+	  })
+	});
+
+
+
+
+
+	//connection.isConnected = db.connections[0].readyState
 }
+
+
+
 
 // disconnecting database
 async function disconnect() {
@@ -44,6 +62,9 @@ async function disconnect() {
 	}
 }
 
+
+
+
 // converting mongodb id, createdAt, updatedAt to string
 function convertDocToObj(doc) {
 	doc._id = doc._id.toString()
@@ -55,3 +76,43 @@ function convertDocToObj(doc) {
 
 const db = { connect, disconnect, convertDocToObj }
 export default db
+
+
+
+
+
+
+// import mongoose from 'mongoose';
+// const connection = {}
+
+// const connectDb = async () => {
+//     if(connection.isConnected){
+//         // Using existing database connection
+//          console.log("Using existing connection")
+//         return;
+//     }
+    
+//     mongoose.set("strictQuery", false);
+//     const db = await mongoose.connect(
+//       //  "mongodb+srv://maher:maher9326@serverlessinstance0.cd9ml.mongodb.net/server-one?retryWrites=true&w=majority"
+//         "mongodb+srv://maher:maher9326@cluster0.nf63j.mongodb.net/theme?retryWrites=true&w=majority"
+//         , 
+//     {
+
+//         useNewUrlParser: true,
+//         useUnifiedTopology: true,
+
+        
+
+//         // useCreateIndex: true,
+//         // useFindAndModify: false,
+//         // useNewUrlParser: true,
+//         // useUnifiedTopology: true
+//     });
+
+//     // console.log("DB Connected");
+
+//     connection.isConnected = db.connections[0].isReadyState;
+// } 
+
+// export default connectDb;

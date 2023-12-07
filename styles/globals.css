@@ -31,3 +31,14 @@ body {
     background: ${token.colorPrimaryActive} !important;
   } */;
 }
+@layer components {
+
+}
+
+.item {
+  border-radius: 50%;
+ }
+.active{
+  color:white !important;
+  background-color: black !important;
+}
